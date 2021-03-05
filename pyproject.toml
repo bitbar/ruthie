@@ -1,3 +1,43 @@
+[tool.poetry]
+name = "ruthie"
+version = "0.1.2"
+description = "Run Unit Tests Harmoniously Incredibly Easy"
+
+license = "ISC"
+
+authors = [
+    "Marek Sierociński <marek.sierocinski@smartbear.com>",
+    "Dominik Kocerka <dominik.kocerka@smartbear.com>"
+]
+
+readme = "README.md"
+
+repository = "https://github.com/bitbar/ruthie"
+homepage = "https://github.com/bitbar/ruthie"
+
+keywords = ["ruthie", "unittests", "tests", "runner", "parallel"]
+
+classifiers = [
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Testing :: Unit"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+toml = ">=0.9"
+
+docopt = "0.6.2"
+xmlrunner = "~1.7.7"
+
+[tool.poetry.dev-dependencies]
+black = "19.3b0"
+pycodestyle = "~2.6.0"
+flake8 = "~3.8.3"
+pre-commit = "~2.6.0"
+
+[tool.poetry.scripts]
+ruthie = "ruthie.cli:main"
+
 [tool.black]
 line-length = 120
-target-version = ['py36']
+target-version = ["py36"]
