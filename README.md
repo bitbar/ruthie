@@ -1,11 +1,13 @@
-# ruthie
+# Ruthie
 
 [![Current Release](https://img.shields.io/github/release/bitbar/ruthie.svg)](releases)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE.md)
 
-Run Unit Tests Harmoniously Incredibly Easy
+<div align="center">
+	<img height="256" src=".static/logo.png" alt="Ruthie Logo">
+</div>
 
-**Ruthie** is the Unittests runner. 
+Ruthie is the Unittests runner, and it's an acronym from "Run Unit Tests Harmoniously Incredibly Easy". 
 
 ## Installation
 
@@ -24,9 +26,9 @@ ruthie --version
 
 Type `ruthie --help` to display available commands and options
 
-## Examples
+### Examples
 
-### List all test classes in directory "unittests"
+#### List all test classes in directory "unittests"
 
 ```sh
 ruthie discover classes unittests
@@ -46,7 +48,7 @@ unittests.end_user.projects.Edit
 unittests.end_user.projects.Delete
 ```
 
-### List all test classes in directory "unittests" and group them
+#### List all test classes in directory "unittests" and group them
 
 ```sh
 ruthie discover classes unittests --group
@@ -69,7 +71,7 @@ Output:
     Delete
 ```
 
-### Discover all classes in directory "unittests" and run them in parallel using 10 threads
+#### Discover all classes in directory "unittests" and run them in parallel using 10 threads
 
 ```sh
 ruthie parallel --threads=10 unittests
