@@ -1,10 +1,13 @@
 import importlib
+import os
+import re
+import sys
 import threading
 from unittest import TestSuite, TestLoader
 
+from ruthie.toolset import discoverer
 from xmlrunner import xmlrunner
 
-from ruthie.toolset import discoverer
 from .base import Base
 
 
@@ -18,6 +21,9 @@ class Parallel(Base):
         self.threads = int(self.options['--threads'])
         assert self.threads > 1, "Threads number must be greater than 1"
 
+        # Add current working directory to module parents search
+        sys.path.append(os.getcwd())
+
         self.queue = discoverer.classes_in(self.options['<path>'])
 
         for i in range(self.threads):
@@ -30,7 +36,8 @@ class Parallel(Base):
             test_params = self.queue.pop()
 
             print(f"Importing {test_params[0]}")
-            module_object = importlib.import_module(test_params[0])
+            m = re.match(r'^(.+)(\.[^.]+)$', test_params[0])
+            module_object = importlib.import_module(m.group(2), m.group(1))
             test_class = getattr(module_object, test_params[1])
             loader = TestLoader()
             suite = TestSuite(
