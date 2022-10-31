@@ -54,4 +54,5 @@ def classes_in(unittests_path):
             test_found = True
             tests_number += 1
 
-    return classes.sort(key=lambda x: x[2], reverse=True)
+    classes.sort(key=lambda x: x[2])
+    return classes
