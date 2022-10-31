@@ -36,23 +36,17 @@ def get_file_line(unittests_path):
 def classes_in(unittests_path):
     classes = []
     current_class = None
-    test_found = False
-    tests_number = 0
 
     gen_get_file_line = get_file_line(unittests_path)
     for module_path, line in gen_get_file_line:
         class_name = re.match(r"class ([^(]+)", line)
         if class_name:
-            if test_found:
-                classes.append((module_path, current_class, tests_number))
             current_class = class_name.group(1)
-            test_found = False
-            tests_number = 0
             continue
 
         if re.match(r" +def test_", line):
-            test_found = True
-            tests_number += 1
+            classes.append((module_path, current_class))
 
-    classes.sort(key=lambda x: x[2])
-    return classes
+    classes = [(i, classes.count(i)) for i in set(classes)]
+    classes.sort(key=lambda x: x[1])
+    return [i[0] for i in classes]
