@@ -3,9 +3,12 @@
 [![Current Release](https://img.shields.io/github/release/bitbar/ruthie.svg)](releases)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE.md)
 
+<div align="center">
+	<img height="256" src=".static/logo.png" alt="Ruthie Logo">
+</div>
 ![Ruthie Logo](.static/logo.png)
 
-Ruthie is the Unittests runner, and it's an acronym from "Run Unit Tests Harmoniously Incredibly Easy". 
+Ruthie is the Unittests runner, and it's an acronym from "Run Unit Tests Harmoniously Incredibly Easy".
 
 ## Installation
 
