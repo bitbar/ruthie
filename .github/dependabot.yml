@@ -1,0 +1,12 @@
+version: 2
+updates:
+    - package-ecosystem: "pip"
+      directory: "/"
+      schedule:
+          interval: "weekly"
+          time: "08:00"
+          timezone: "UTC"
+      target-branch: "master"
+      versioning-strategy: increase-if-necessary
+      #Lookup only for minor and patch updates
+      update-types: ["version-update:semver-minor", "version-update:semver-patch"]
